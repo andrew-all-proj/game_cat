@@ -4150,9 +4150,9 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Acts.RestartLayout,
 		C3.Plugins.System.Acts.ResetGlobals,
 		C3.Plugins.System.Cnds.EveryTick,
-		C3.Plugins.System.Exps.loadingprogress,
 		C3.Plugins.Sprite.Acts.SetWidth,
-		C3.Plugins.System.Cnds.OnLoadComplete,
+		C3.Plugins.System.Exps.loadingprogress,
+		C3.Plugins.System.Cnds.OnLoadFinished,
 		C3.Plugins.System.Acts.GoToLayout
 	];
 };
@@ -4329,11 +4329,11 @@ self.C3_ExpressionFuncs = [
 		() => 2000,
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => and(Math.round((f0() * 100)), "%");
+			return () => Math.round((f0() * 428));
 		},
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => Math.round((f0() * 428));
+			return () => and(Math.round((f0() * 100)), "%");
 		}
 ];
 
