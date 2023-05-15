@@ -4152,15 +4152,16 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Cnds.EveryTick,
 		C3.Plugins.System.Exps.loadingprogress,
 		C3.Plugins.Sprite.Acts.SetWidth,
-		C3.Plugins.System.Cnds.OnLoadFinished,
+		C3.Plugins.System.Cnds.OnLoadComplete,
 		C3.Plugins.System.Acts.GoToLayout
 	];
 };
 self.C3_JsPropNameTable = [
-	{load_bar: 0},
+	{background_loading: 0},
 	{progres_bar: 0},
-	{Text_loading: 0},
-	{Text_procent_load: 0},
+	{loading_text: 0},
+	{background_progres_bar: 0},
+	{procent_load: 0},
 	{Платформер: 0},
 	{СледитьЗа: 0},
 	{Main_cat: 0},
@@ -4172,7 +4173,7 @@ self.C3_JsPropNameTable = [
 	{stop_zone_left: 0},
 	{poop: 0},
 	{Button_eat: 0},
-	{ТайловыйФон2: 0},
+	{background: 0},
 	{Button_play: 0},
 	{Button_clean: 0},
 	{Touch: 0},
@@ -4182,11 +4183,8 @@ self.C3_JsPropNameTable = [
 	{AdvancedRandom: 0},
 	{Sad_cat: 0},
 	{create_task: 0},
-	{Text: 0},
+	{Count: 0},
 	{start: 0},
-	{Sprite: 0},
-	{Sprite2: 0},
-	{Sprite4: 0},
 	{GAME_STOP: 0},
 	{RND: 0},
 	{CAT_VARIABLE: 0},
@@ -4295,7 +4293,7 @@ self.C3_ExpressionFuncs = [
 		() => 0,
 		() => 1,
 		() => "click",
-		() => 0.1,
+		() => 0.3,
 		() => "start",
 		() => "btn_click_clean",
 		() => "btn_clean_default",
@@ -4320,24 +4318,22 @@ self.C3_ExpressionFuncs = [
 		() => 5,
 		() => 300,
 		() => 10,
-		() => 400,
-		() => 15,
-		() => 500,
-		() => 20,
 		() => 600,
-		() => 25,
-		() => 700,
-		() => 30,
-		() => 800,
-		() => 35,
+		() => 15,
 		() => 900,
+		() => 20,
+		() => 1200,
+		() => 25,
+		() => 1500,
+		() => 30,
+		() => 2000,
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => and(Math.round((f0() * 100)), "%");
 		},
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => Math.round((f0() * 412));
+			return () => Math.round((f0() * 428));
 		}
 ];
 
