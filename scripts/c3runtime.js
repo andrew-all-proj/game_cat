@@ -4136,15 +4136,14 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Sprite.Cnds.OnCollision,
 		C3.Plugins.System.Acts.SetVar,
 		C3.Plugins.Sprite.Acts.SetMirrored,
+		C3.Plugins.Text.Acts.SetText,
 		C3.Plugins.Touch.Cnds.IsTouchingObject,
 		C3.Plugins.Sprite.Acts.SetAnim,
 		C3.Plugins.Sprite.Acts.Destroy,
-		C3.Plugins.System.Acts.Wait,
 		C3.Plugins.Touch.Cnds.OnTouchObject,
 		C3.Plugins.System.Exps.choose,
 		C3.Plugins.System.Cnds.Compare,
 		C3.Plugins.System.Acts.CreateObject,
-		C3.Plugins.Text.Acts.SetText,
 		C3.Plugins.Sprite.Acts.SetVisible,
 		C3.Behaviors.Platform.Acts.SetMaxSpeed,
 		C3.Plugins.System.Acts.RestartLayout,
@@ -4153,6 +4152,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Sprite.Acts.SetWidth,
 		C3.Plugins.System.Exps.loadingprogress,
 		C3.Plugins.System.Cnds.OnLoadFinished,
+		C3.Plugins.System.Acts.Wait,
 		C3.Plugins.System.Acts.GoToLayout
 	];
 };
@@ -4178,13 +4178,13 @@ self.C3_JsPropNameTable = [
 	{Button_clean: 0},
 	{Touch: 0},
 	{Emty_bowl: 0},
-	{active_zone: 0},
 	{text_game_over: 0},
 	{AdvancedRandom: 0},
 	{Sad_cat: 0},
 	{create_task: 0},
 	{Count: 0},
 	{start: 0},
+	{centr_scene: 0},
 	{GAME_STOP: 0},
 	{RND: 0},
 	{CAT_VARIABLE: 0},
@@ -4292,8 +4292,15 @@ function or(l, r)
 self.C3_ExpressionFuncs = [
 		() => 0,
 		() => 1,
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => (v0.GetValue() + 1);
+		},
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => v0.GetValue();
+		},
 		() => "click",
-		() => 0.3,
 		() => "start",
 		() => "btn_click_clean",
 		() => "btn_clean_default",
@@ -4302,31 +4309,30 @@ self.C3_ExpressionFuncs = [
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => f0(1, 2, 3);
 		},
-		p => {
-			const v0 = p._GetNode(0).GetVar();
-			return () => v0.GetValue();
-		},
 		() => 60,
-		() => 505,
+		() => 510,
 		() => "",
 		() => 2,
+		() => 505,
 		() => 3,
-		p => {
-			const v0 = p._GetNode(0).GetVar();
-			return () => (v0.GetValue() + 1);
-		},
+		() => "run_angry",
+		() => "pissing_sneakers",
 		() => 5,
 		() => 300,
 		() => 10,
-		() => 600,
+		() => 400,
 		() => 15,
-		() => 900,
+		() => 500,
 		() => 20,
-		() => 1200,
+		() => 600,
 		() => 25,
-		() => 1500,
+		() => 700,
 		() => 30,
-		() => 2000,
+		() => 800,
+		() => 35,
+		() => 900,
+		() => 40,
+		() => 1100,
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => Math.round((f0() * 428));
